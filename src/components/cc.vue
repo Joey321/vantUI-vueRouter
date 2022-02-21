@@ -11,6 +11,11 @@
       input-align="right"
       required
     />
+    <!-- 按钮 -->
+    <div class="btn-wrapper">
+      <van-button type="info" @click="toTheParent">Back</van-button>
+      <van-button type="info">Save</van-button>
+    </div>
   </div>
 </template>
 <script>
@@ -27,6 +32,9 @@ export default {
     showPopup() {
       this.show = true;
     },
+    toTheParent() {
+      this.$emit('closePopup', false)
+    }
   },
 };
 </script>
@@ -35,5 +43,13 @@ export default {
    width: 100%;
    height: 600px;
    background-color: rgb(235, 135, 222);
+ }
+ .btn-wrapper {
+   display: flex;
+   justify-content: space-around;
+   margin: 10px auto;
+ }
+ .btn-wrapper .van-button {
+   width: 40%;
  }
 </style>

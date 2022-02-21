@@ -4,7 +4,7 @@
     <!-- 按钮 -->
     <div class="btn-wrapper">
       <!-- 点击通过if选择显示 Add Report 组件 数据通过组件传值-->
-      <van-button type="info" block>Add Report</van-button>
+      <van-button type="info" block @click="showPopup">Add Report</van-button>
     </div>
     <!-- tabs -->
       <van-tabs v-model="active" @click="onClick" animated color="blue">
@@ -12,6 +12,10 @@
         <van-tab title="Pending"><B/></van-tab>
         <van-tab title="All"><C/></van-tab>
       </van-tabs>
+    <!-- <Tabbar :tabData="tabData" /> -->
+    <van-popup v-model="show">
+      <C @closePopup="closePopup"></C>
+    </van-popup>
   </div>
 </template>
 <script>
@@ -29,12 +33,25 @@ export default {
   data() {
     return {
       active: 0,
+      show: false,
+      // v-html不能渲染一个组件
+      // tabData: [
+      //   { title: '标签 1', content: `<A/>`},
+      //   { title: '标签 2', content: `<B/>`},
+      //   { title: '标签 3', content: `<C/>`},
+      // ]
     };
   },
   methods: {
     onClick(name, title) {
       console.log(name, title);
     },
+    showPopup() {
+      this.show = true;
+    },
+    closePopup(isShow) {
+      this.show = isShow;
+    }
   }
 };
 </script>
@@ -47,5 +64,9 @@ export default {
  .btn-wrapper {
    width: 100%;
    padding: 5px;
+ }
+ .van-popup {
+   width: 100%;
+   height: 100%;
  }
 </style>

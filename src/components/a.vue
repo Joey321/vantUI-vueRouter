@@ -9,6 +9,17 @@
     </van-cell-group>
   </div>
 </template>
+<script>
+export default {
+  name: 'A',
+  data() {
+    return {
+    }
+  },
+  methods: {
+  },
+}
+</script>
 <style scoped>
   .a {
    width: 100%;
