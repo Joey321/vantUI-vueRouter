@@ -22,6 +22,7 @@
 export default {
   data() {
     return {
+      // 弹出层
       show: false,
       // 输入框值
       value: '',

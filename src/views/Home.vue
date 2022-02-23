@@ -3,7 +3,6 @@
   <div class="home">
     <!-- 按钮 -->
     <div class="btn-wrapper">
-      <!-- 点击通过if选择显示 Add Report 组件 数据通过组件传值-->
       <van-button type="info" block @click="showPopup">Add Report</van-button>
     </div>
     <!-- tabs -->
@@ -12,7 +11,7 @@
         <van-tab title="Pending"><B/></van-tab>
         <van-tab title="All"><C/></van-tab>
       </van-tabs>
-    <!-- <Tabbar :tabData="tabData" /> -->
+    <!-- 组件弹窗 -->
     <van-popup v-model="show">
       <C @closePopup="closePopup"></C>
     </van-popup>
@@ -22,24 +21,18 @@
 import A from '../components/a.vue'
 import B from '../components/b.vue'
 import C from '../components/cc.vue'
-// import Tabbar from '../components/Tabbar.vue';
 export default {
   components: {
     A,
     B,
-    C,  
-    // Tabbar,
+    C,
   },
   data() {
     return {
+      // tabs索引
       active: 0,
+      // 组件弹窗
       show: false,
-      // v-html不能渲染一个组件
-      // tabData: [
-      //   { title: '标签 1', content: `<A/>`},
-      //   { title: '标签 2', content: `<B/>`},
-      //   { title: '标签 3', content: `<C/>`},
-      // ]
     };
   },
   methods: {

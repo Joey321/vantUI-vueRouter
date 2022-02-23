@@ -1,22 +1,31 @@
 <template>
   <div id="app">
+  <!-- Tabbar切换组件 -->
     <keep-alive>
-      <router-view />
+      <Home v-if="active === 0" />
+      <About v-if="active === 1" />
     </keep-alive>
-    <Tab></Tab>
+     <!-- 底部Tabbar -->
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-import Tab from './components/Tab.vue'
+import Home from './views/Home'
+import About from './views/About'
 export default {
   name: 'App',
   components: {
-    Tab
+    Home,
+    About
   },
   data() {
     return {
-
+      // Tabbar索引
+      active: 0,
     }
   },
   methods: {
